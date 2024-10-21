@@ -101,6 +101,13 @@
         },
         {
             "Address": "",
+            "AssetPath": "Assets/Res/zhs/prefab/level/level_gezi.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 6
+        },
+        {
+            "Address": "",
             "AssetPath": "Assets/Res/zhs/prefab/level/normalgezi.prefab",
             "AssetGUID": "",
             "AssetTags": [],
@@ -158,6 +165,13 @@
         {
             "Address": "",
             "AssetPath": "Assets/Res/zhs/prefab/tower/Tower1.prefab",
+            "AssetGUID": "",
+            "AssetTags": [],
+            "BundleID": 10
+        },
+        {
+            "Address": "",
+            "AssetPath": "Assets/Res/zhs/prefab/tower/Tower2.prefab",
             "AssetGUID": "",
             "AssetTags": [],
             "BundleID": 10

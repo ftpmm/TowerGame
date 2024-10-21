@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace lzengine
 {
@@ -23,6 +24,8 @@ namespace lzengine
         public int placeEndX;
         public int placeEndY;
 
+        public List<Vector2Int> monsterSpawnPos = new List<Vector2Int>();
+
         /// <summary>
         /// 地图实际尺寸
         /// </summary>
@@ -34,13 +37,16 @@ namespace lzengine
         private float cellSizeX = 1;
         private float cellSizeY = 1;
 
-        /// <summary>
-        /// 阻挡标记
-        /// </summary>
-        public int[,] mBlocks;
-
         public Map mMap;
         public Map mMapPreview;
+
+        //放置格子的颜色控制
+        private Color colorNormal = new Color(1, 1, 1, 0.1f);
+        private Color colorRed = new Color(1, 0, 0, 0.1f);
+        private Color colorNormal_NoWalkable = new Color(1, 1, 1, 0.06f);
+        private Color colorGreen = new Color(0, 1, 0, 0.2f);
+        private List<Vector2Int> mLastSetGeZiList = new List<Vector2Int>();
+        private Dictionary<int,GameObject> mGeZiDict = new Dictionary<int, GameObject>();
 
         private void Start()
         {
@@ -48,7 +54,6 @@ namespace lzengine
             cellSizeY = cellSizeX;
             sizeY = (int)(Mathf.Abs(mapEndY - mapStartY) / cellSizeX) + 1;
 
-            var mapMono = GameObject.FindAnyObjectByType<MapMono>();
             if(mMap == null)
             {
                 mMap = new Map();
@@ -58,8 +63,41 @@ namespace lzengine
                 mMapPreview = new Map();
             }
 
+            monsterSpawnPos.Clear();
+            var monsterSpawnMonos = GameObject.FindObjectsByType<EnemySpawnMono>(FindObjectsSortMode.None);
+            for (int i = 0; i < monsterSpawnMonos.Length; i++) 
+            {
+                Vector2Int spawnPos = GetLevelCellByPos(monsterSpawnMonos[i].transform.position);
+                monsterSpawnPos.Add(spawnPos);
+            }
+
             Debug.Log("cellSize = " + cellSizeX + ", xNum = " + sizeX + ", yNum = " + sizeY);
+
+            InitGeZi();
+
             DoStart();
+        }
+
+        private void InitGeZi()
+        {
+            AssetsManager.Instance.LoadAssetAsync<GameObject>("prefab/level/level_gezi", (prefab) => { 
+                if(prefab == null)
+                {
+                    return;
+                }
+
+                for (int x = placeStartX; x <= placeEndX; x++)
+                {
+                    for(int y = placeStartY; y <= placeEndY; y++)
+                    {
+                        Vector2 pos = GetLevelMapPos(new Vector2Int(x, y));
+                        var geziGo = GameObject.Instantiate(prefab);
+                        geziGo.transform.position = pos;
+                        int cellIndex = y * sizeX + x;
+                        mGeZiDict[cellIndex] = geziGo;
+                    }
+                }
+            });
         }
 
         private void Update()
@@ -178,17 +216,103 @@ namespace lzengine
                 return false;
             }
 
+            //预测放置后地图的怪物的可行走区域
+            bool isWalkable = true;
             mMapPreview.SetWalkable(cellPos, size.x, size.y, false);
-            bool ret = mMapPreview.IsTargetWalkable();
-            //还原
+            for (int i = 0; i < monsterSpawnPos.Count; i++)
+            {
+                isWalkable &= mMapPreview.IsWalkable(monsterSpawnPos[i].x, monsterSpawnPos[i].y);
+                if(!isWalkable)
+                {
+                    break;
+                }
+            }
+            isWalkable &= mMapPreview.IsTargetWalkable();
+
+            //还原地图
             mMapPreview.CloneFrom(mMap);
-            return ret;
+
+            return isWalkable;
         }
 
         public void SetMapWalkable(Vector2Int cellPos, Vector2Int size, bool isWalkable)
         {
             mMap.SetWalkable(cellPos, size.x, size.y, isWalkable);
             mMapPreview.CloneFrom(mMap);
+            
+            for(int x = cellPos.x; x < cellPos.x + size.x; x++)
+            {
+                for(int y = cellPos.y; y < cellPos.y + size.y; y++)
+                {
+
+                    int index = y * sizeX + x;
+                    mGeZiDict.TryGetValue(index, out GameObject go);
+                    if(go != null)
+                    {
+                       var sp = go.GetComponent<SpriteRenderer>();
+                        if(sp != null)
+                        {
+                            sp.color = colorNormal_NoWalkable;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void SetPlacableState(Vector2 pos, Vector2Int size, bool isPlacable)
+        {
+            if(mLastSetGeZiList.Count > 0)
+            {
+                for (int i = 0; i < mLastSetGeZiList.Count; i++)
+                {
+                    var cPos = mLastSetGeZiList[i];
+                    int cellIndex = cPos.y * sizeX + cPos.x;
+                    bool isWalkable = mMap.IsWalkable(cPos.x, cPos.y);
+                    if (isWalkable)
+                    {
+                        SetGeZiState(cellIndex, colorNormal);
+                    }
+                    else
+                    {
+                        SetGeZiState(cellIndex, colorNormal_NoWalkable);
+                    }
+                }
+                mLastSetGeZiList.Clear();
+            }
+            
+
+            Vector2Int cellPos = GetLevelCellByPos(pos);
+            for (int x = cellPos.x; x < cellPos.x + size.x; x++)
+            {
+                for (int y = cellPos.y; y < cellPos.y + size.y; y++)
+                {
+                    Vector2Int tmpCellPos = new Vector2Int(x, y);
+                    mLastSetGeZiList.Add(tmpCellPos);
+
+                    int index = y * sizeX + x;
+                    if(isPlacable)
+                    {
+                        SetGeZiState(index, colorGreen);
+                    }
+                    else
+                    {
+                        SetGeZiState(index, colorRed);
+                    }
+                }
+            }
+        }
+
+        private void SetGeZiState(int index, Color color)
+        {
+            mGeZiDict.TryGetValue(index, out GameObject go);
+            if (go != null)
+            {
+                var sp = go.GetComponent<SpriteRenderer>();
+                if (sp != null)
+                {
+                    sp.color = color;
+                }
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ namespace lzengine
             mMono = GetMono<UINormalLevelMono>();
 
             AddTowerItem(1);
+            AddTowerItem(2);
         }
 
         public void AddTowerItem(int towerId)
@@ -30,6 +31,7 @@ namespace lzengine
             {
                 itemCom = towerGo.AddComponent<SubTowerItem>();
             }
+            itemCom.TowerId = towerId;
             itemCom.AddDragEvent(OnItemDragStart, OnItemDrag, OnItemDragEnd);
         }
 
@@ -38,7 +40,7 @@ namespace lzengine
             if(mCurDragItem == null)
             {
                 var actorSys = GameSystemMgr.GetSystem<ActorSystem>();
-                mCurDragItem = actorSys.CreateActor<TowerForUI>("prefab/tower/Tower1");
+                mCurDragItem = actorSys.CreateActor<TowerForUI>("prefab/tower/Tower" + item.TowerId);
             }
         }
 
@@ -51,6 +53,7 @@ namespace lzengine
             var wPos = Camera.main.ScreenToWorldPoint(sPos);
             wPos.z = 0;
             mCurDragItem.Position = wPos;
+            GameLevelManager.Instance.SetPlacableState(mCurDragItem.Position, mCurDragItem.TowerSize, mCurDragItem.IsPlacable);
         }
 
         private void OnItemDragEnd(SubTowerItem item, Vector2 sPos)

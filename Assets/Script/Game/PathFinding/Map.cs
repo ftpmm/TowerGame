@@ -53,7 +53,7 @@ namespace lzengine
                 for(int y = 0; y < sizeY; y++)
                 {
                     int tmpx = pos.x + x;
-                    int tmpy = pos.y - y;
+                    int tmpy = pos.y + y;
                     int cellindex = _graph.GetIndex(tmpx, tmpy);
                     _graph.ToggleWalkability(tmpx, tmpy, isWalkable);
                 }
@@ -135,7 +135,7 @@ namespace lzengine
             {
                 for (int y = 0; y < sizeY; y++)
                 {
-                    _graph.TryGet(pos.x + x, pos.y - y, out Node node);
+                    _graph.TryGet(pos.x + x, pos.y + y, out Node node);
                     if (node == null || !node.isWalkable)
                     {
                         return false;

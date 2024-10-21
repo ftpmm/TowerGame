@@ -9,6 +9,8 @@ namespace lzengine
     {
         private Button mBtn;
 
+        public int TowerId;
+
         private Action<SubTowerItem, Vector2> mOnDragStart;
         private Action<SubTowerItem, Vector2> mOnDrag;
         private Action<SubTowerItem, Vector2> mOnDragEnd;

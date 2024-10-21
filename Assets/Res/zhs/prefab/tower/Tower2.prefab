@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7496715349396325570}
   - component: {fileID: 3373825510002358225}
   m_Layer: 0
-  m_Name: Tower1
+  m_Name: Tower2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,9 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8207aeb7a9d288d47963f41aa29a5b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerId: 1
+  towerId: 2
   sizeX: 2
-  sizeY: 2
+  sizeY: 3
   param:
     atk: 0
     atkPercent: 0

@@ -45,7 +45,7 @@ namespace lzengine
                 sprites[i].sortingLayerName = "UITop";
             }
             UIUtils.ChangeLayer(go.transform, LayerDefine.UI);
-            go.transform.localScale = Vector3.one * 0.7f;
+            go.transform.localScale = Vector3.one;
         }
 
         public override void OnInit()
