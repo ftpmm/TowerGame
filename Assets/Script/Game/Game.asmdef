@@ -1,0 +1,17 @@
+{
+    "name": "Game",
+    "rootNamespace": "",
+    "references": [
+        "GUID:faedbc5e279a7d7408e6669af4fd31de",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,654 @@
+fileFormatVersion: 2
+guid: 5f0f27c29eb4f4643a5aedef744452df
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: topDown_baseTiles_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 642
+        width: 44
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20af93069d8fa4b42a88180467fb6473
+      internalID: -1492190217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 642
+        width: 44
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5000002, y: 0.2429875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3686ff9d6d44b5349a247f6fa1399c86
+      internalID: 63319998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 659
+        width: 32
+        height: 34
+      alignment: 9
+      pivot: {x: 0.51215625, y: 0.3317907}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 539fc72eae83fb146b02a719489c6ffe
+      internalID: 832664593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 578
+        width: 36
+        height: 59
+      alignment: 9
+      pivot: {x: 0.4945971, y: 0.2725385}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1a5fa1ba8f3254d991dbadb868994f
+      internalID: -1613412531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_5
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 448
+        width: 51
+        height: 64
+      alignment: 9
+      pivot: {x: 0.47570845, y: 0.122396946}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72385beb9af8869499831a3f6e0741bf
+      internalID: -1267628815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_6
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 514
+        width: 36
+        height: 59
+      alignment: 9
+      pivot: {x: 0.4945971, y: 0.27583545}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05841b858e7199f4b8ae261fe643aba6
+      internalID: 279298585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_7
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 514
+        width: 44
+        height: 56
+      alignment: 9
+      pivot: {x: 0.49115962, y: 0.2568806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b633cd3474cf44895c4bcff40929df
+      internalID: 1531639851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 450
+        width: 36
+        height: 59
+      alignment: 9
+      pivot: {x: 0.5054025, y: 0.24616617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d2f5634d9e01af4d8e5db5223817ab0
+      internalID: -1947286822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_9
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 450
+        width: 44
+        height: 56
+      alignment: 9
+      pivot: {x: 0.4955798, y: 0.27077267}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91d26cb4b915ce54c952c5afec103cbd
+      internalID: -190221220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_10
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 240
+        width: 80
+        height: 80
+      alignment: 9
+      pivot: {x: 0.50308263, y: 0.21947327}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c352055d978984cb549d5344d16af8
+      internalID: 218908922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_11
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 354
+        width: 13
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5355154, y: 0.2801492}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54abdb620fea11f43b4865fc9e0e0b54
+      internalID: -1672979105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_12
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 352
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.51026, y: 0.35572243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ca95dc2c95e2946aa04ea506780288
+      internalID: 325973174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_13
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 298
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39828f27c3dbfd4469c681eb96c94eca
+      internalID: 1642426988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_14
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 177
+        width: 48
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60dfce81b2b68b42b6526cde9eda8a8
+      internalID: 2020801402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_15
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 177
+        width: 40
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5a0525a6176a446b54e67f4ac94f26
+      internalID: -1774063102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_16
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 512
+        width: 51
+        height: 64
+      alignment: 9
+      pivot: {x: 0.47330445, y: 0.19609928}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2c73999f8419c43b6d7ded5dc2fe38
+      internalID: -1241978876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_17
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 576
+        width: 51
+        height: 64
+      alignment: 9
+      pivot: {x: 0.4694908, y: 0.20825577}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223c06d93f350fa4e85461140219e93f
+      internalID: 172416223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_18
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.50513774, y: 0.29577065}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4680251be64195459bdbaa1deed1d1d
+      internalID: -743199660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 32
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e88a6b4d93e2d4a9f2fc766dd39229
+      internalID: 1591030065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_20
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 355
+        width: 16
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5192375, y: 0.35420468}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5894c88b3d10f8546953610cb1cc37aa
+      internalID: -1737164841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_21
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 356
+        width: 16
+        height: 18
+      alignment: 9
+      pivot: {x: 0.50961876, y: 0.23495653}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ddb8b85f600ddf4d92af820844af4b4
+      internalID: -2093088407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_22
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 341
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8787d4a89c580f49a69b6330e7b0df3
+      internalID: -828541020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: topDown_baseTiles_23
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 325
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c883e89d3394844e9c086a15f57903a
+      internalID: 1536214303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      topDown_baseTiles_0: -422406512
+      topDown_baseTiles_1: -1492190217
+      topDown_baseTiles_10: 218908922
+      topDown_baseTiles_11: -1672979105
+      topDown_baseTiles_12: 325973174
+      topDown_baseTiles_13: 1642426988
+      topDown_baseTiles_14: 2020801402
+      topDown_baseTiles_15: -1774063102
+      topDown_baseTiles_16: -1241978876
+      topDown_baseTiles_17: 172416223
+      topDown_baseTiles_18: -743199660
+      topDown_baseTiles_19: 1591030065
+      topDown_baseTiles_2: 63319998
+      topDown_baseTiles_20: -1737164841
+      topDown_baseTiles_21: -2093088407
+      topDown_baseTiles_22: -828541020
+      topDown_baseTiles_23: 1536214303
+      topDown_baseTiles_3: 832664593
+      topDown_baseTiles_4: -1613412531
+      topDown_baseTiles_5: -1267628815
+      topDown_baseTiles_6: 279298585
+      topDown_baseTiles_7: 1531639851
+      topDown_baseTiles_8: -1947286822
+      topDown_baseTiles_9: -190221220
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

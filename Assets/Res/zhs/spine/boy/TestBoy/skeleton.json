@@ -1,0 +1,59 @@
+{
+"skeleton": {
+	"hash": "ZGVNBXX38fmDBYwGdSM+OS5VCGg",
+	"spine": "3.8.75",
+	"x": -0.4,
+	"y": -512.4,
+	"width": 512.79,
+	"height": 512.79,
+	"images": "./images/",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "head", "bone": "root", "attachment": "head" },
+	{ "name": "body", "bone": "root", "attachment": "body" },
+	{ "name": "lefthand", "bone": "root", "attachment": "lefthand" },
+	{ "name": "righthand", "bone": "root", "attachment": "righthand" },
+	{ "name": "leftleg", "bone": "root", "attachment": "leftleg" },
+	{ "name": "rightleg", "bone": "root", "attachment": "rightleg" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"righthand": {
+				"righthand": { "x": 256, "y": -256, "width": 512, "height": 512 }
+			},
+			"head": {
+				"head": { "x": 256, "y": -256, "width": 512, "height": 512 }
+			},
+			"body": {
+				"body": { "x": 256, "y": -256, "width": 512, "height": 512 }
+			},
+			"leftleg": {
+				"leftleg": { "x": 256, "y": -256, "rotation": -0.09, "width": 512, "height": 512 }
+			},
+			"rightleg": {
+				"rightleg": { "x": 256, "y": -256, "width": 512, "height": 512 }
+			},
+			"lefthand": {
+				"lefthand": { "x": 256, "y": -256, "width": 512, "height": 512 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"root": {
+				"translate": [
+					{ "x": -262.68, "y": 481.37 }
+				]
+			}
+		}
+	}
+}
+}

@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185f6993d5150494d98da50e26cb1c25, type: 3}
+  m_Name: AssetBundleCollectorSetting
+  m_EditorClassIdentifier: 
+  ShowPackageView: 1
+  ShowEditorAlias: 0
+  UniqueBundleName: 1
+  Packages:
+  - PackageName: PackZhs
+    PackageDesc: 
+    EnableAddressable: 0
+    LocationToLower: 0
+    IncludeAssetGUID: 0
+    IgnoreDefaultType: 1
+    AutoCollectShaders: 1
+    Groups:
+    - GroupName: Default Group
+      GroupDesc: 
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/Res/zhs/data
+        CollectorGUID: a349bb5ebca40834e999d153c3828bb4
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/Res/zhs/hotfix
+        CollectorGUID: 5d02ffa41ea1a8445ae86e4c6fb5888a
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/Res/zhs/prefab
+        CollectorGUID: 1676ac5565756f94aa1418539ff67fa0
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/Res/zhs/scene
+        CollectorGUID: 89f1a47192e88b94dad9925d7df49a4c
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/Res/zhs/texture
+        CollectorGUID: 1363564f69853a849af69c45dd047953
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/Res/zhs/tiles
+        CollectorGUID: bad5041c7b8c4c541b6c0117bd50b1ed
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
