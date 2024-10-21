@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -352,37 +353,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 953423681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!1 &1647099037
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1647099038}
-  m_Layer: 0
-  m_Name: gezi
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1647099038
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647099037}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.15, y: 3.290017, z: 0.06709067}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1847175361
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1847175363}
-  - component: {fileID: 1847175362}
+  - component: {fileID: 1847175364}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -400,27 +370,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1847175362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847175361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fb106429e87b2f4ba820272e617874c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rows: 30
-  _columns: 14
-  _obstaclesNum: 111
-  target: {x: 0, y: 0}
-  _addObstacle: 0
-  offX: 139.4
-  offY: 0
-  cellSizeX: 60
-  cellSizeY: 58.3
 --- !u!4 &1847175363
 Transform:
   m_ObjectHideFlags: 0
@@ -436,6 +385,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1847175364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847175361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd070607767bf2540a5b36ea6e37a72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rows: 1
+  _columns: 14
+  target: {x: 0, y: 0}
+  isSimulate: 0
 --- !u!1001 &1882519934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -571,4 +536,3 @@ SceneRoots:
   - {fileID: 953423681}
   - {fileID: 1847175363}
   - {fileID: 1882519934}
-  - {fileID: 1647099038}

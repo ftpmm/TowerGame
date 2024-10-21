@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Pathfinding
+namespace lzengine
 {
     public class NodeDefine
     {

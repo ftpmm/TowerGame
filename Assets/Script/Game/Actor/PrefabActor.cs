@@ -72,6 +72,10 @@ namespace lzengine
         private void PrefabLoadCallBack(GameObject prefab)
         {
             mIsPrefabLoaded=true;
+            if(isDestroy)
+            {
+                return;
+            }
 
             if(prefab == null)
             {
@@ -92,5 +96,16 @@ namespace lzengine
         }
 
         public virtual void OnLoadPrefab(GameObject go) { }
+
+        public override void Destroy()
+        {
+            if(mRootGo != null)
+            {
+                GameObject.Destroy(mRootGo);
+                mRootGo = null;
+                mRootTrans = null;
+            }
+            base.Destroy();
+        }
     }
 }

@@ -1,184 +1,180 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
+using static UnityEngine.GraphicsBuffer;
 
-public class Map : MonoBehaviour
+namespace lzengine
 {
-    [SerializeField, Range(1, 50)]
-    private int _rows;
-    [SerializeField, Range(1, 50)]
-    private int _columns;
-    [SerializeField, Range(0, 50)]
-    private int _obstaclesNum;
-    [SerializeField]
-    private Vector2Int target;
-
-    [SerializeField]
-    private bool _addObstacle = false;
-
-
-    Graph _graph;
-    HashSet<Vector2Int> _obstacles = new();
-
-    public Graph Graph => _graph;
-    public int Rows => _rows;
-    public int Columns => _columns;
-    public HashSet<Vector2Int> Obstacles => _obstacles;
-
-    private bool _isInit = false;
-
-    public float offX = 0;
-    public float offY = 0;
-    public float cellSizeX = 50;
-    public float cellSizeY = 50;
-
-    void Start()
+    public class Map
     {
-        _graph = null;
-    }
+        private int _rows;
+        private int _columns;
+        private Vector2Int _target;
+        private Graph _graph;
 
-    public void InitMap(int rows, int cols)
-    {
-        _rows = rows;
-        _columns = cols;
-        _obstaclesNum = 20;
-        Graph.TryCreate(_rows, _columns, out _graph);
-        GenerateFlowField();
-        _isInit = true;
-    }
+        public Graph Graph => _graph;
+        public int Rows => _rows;
+        public Vector2Int Target => _target;
+        public int Columns => _columns;
 
-    public void SetTarget(int targetX, int targetY)
-    {
-        target = new Vector2Int(targetX, targetY);
-    }
-
-    private void GenerateFlowField()
-    {
-        GenerateObstacles(_obstaclesNum);
-
-        _graph.SetTarget(target.x, target.y);
-        _graph.GenerateFlowField(target.x, target.y);
-    }
-
-    public void GenerateObstacles(int total)
-    {
-        int leftObjNum = total - _obstacles.Count;
-        for (int i = 0; i < leftObjNum; i++)
+        void Start()
         {
-            int x = UnityEngine.Random.Range(0, _columns);
-            int y = UnityEngine.Random.Range(0, _rows);
-            if (x == target.x && y == target.y)
+            _graph = null;
+        }
+
+        public void GenerateMap(Vector2Int mapSize, Vector2Int target)
+        {
+            _columns = mapSize.x;
+            _rows = mapSize.y;
+            _target = target;
+            Graph.TryCreate(_rows, _columns, out _graph);
+            _graph.SetTarget(_target.x, _target.y);
+            _graph.GenerateFlowField(_target.x, _target.y);
+        }
+
+        public void SetTarget(Vector2Int target)
+        {
+            _target = target;
+            if (_graph != null)
             {
-                i -= 1;
-                continue;
+                _graph.SetTarget(_target.x, _target.y);
+                _graph.GenerateFlowField(_target.x, _target.y);
             }
-
-            _graph.ToggleWalkability(x, y, false);
-            if (_obstacles.Contains(new(x, y)))
-                i -= 1;
             else
-                _obstacles.Add(new(x, y));
-        }
-    }
-
-    private void Update()
-    {
-        if (_addObstacle)
-        {
-            _addObstacle = false;
-            _obstaclesNum++;
-            GenerateFlowField();
-        }
-    }
-
-    public Vector2Int GetNextNode(int col, int row)
-    {
-        _graph.TryGet(col, row, out Node node);
-        if(node == null)
-        {
-            return new Vector2Int(-1, -1);
-        }
-        int offx = 0;
-        int offy = 0;
-        bool hasNext = false;
-        var dir = node.direction;
-        if(dir.Equals(Direction.Down))
-        {
-            offy = 1;
-            hasNext = true;
-        }
-        else if(dir.Equals(Direction.Up))
-        {
-            offy = -1;
-            hasNext = true;
-        }
-        else if (dir.Equals(Direction.Right))
-        {
-            offx = 1;
-            hasNext = true;
-        }
-        else if (dir.Equals(Direction.Left))
-        {
-            offx = -1;
-            hasNext = true;
-        }
-       
-        if(!hasNext)
-        {
-            return new Vector2Int(-1, -1);
-        }
-
-        return new Vector2Int(col + offx, row + offy);
-    }
-
-    public bool IsWalkable(int col, int row)
-    {
-        _graph.TryGet(col, row, out Node node);
-        if(node == null)
-        {
-            return false;
-        }
-
-        if(node.fCost == NodeDefine.MaxCost)
-        {
-            return false;
-        }
-
-        return node.isWalkable;
-    }
-
-    private List<Node> tmpList = new List<Node>();
-    public List<Node> GetNearWalkableNodes(int col, int row)
-    {
-        tmpList.Clear();
-        Node node = null;
-        for(int c = -2; c <= 2; c++)
-        {
-            for(int r = -2; r <= 2; r++)
             {
-                _graph.TryGet(col + c, row + r, out node);
-                if (node != null && node.isWalkable)
+                LZDebug.LogError("Please GenerateMap First !!!!");
+            }
+        }
+
+        public void SetWalkable(Vector2Int pos, int sizeX, int sizeY, bool isWalkable)
+        {
+            for(int x = 0; x < sizeX; x++)
+            {
+                for(int y = 0; y < sizeY; y++)
                 {
-                    tmpList.Add(node);
+                    int tmpx = pos.x + x;
+                    int tmpy = pos.y - y;
+                    int cellindex = _graph.GetIndex(tmpx, tmpy);
+                    _graph.ToggleWalkability(tmpx, tmpy, isWalkable);
                 }
             }
-        }
-        return tmpList;
-    }
 
-    //private void OnGUI()
-    //{
-    //    if (_graph != null)
-    //    {
-    //        GUIStyle style = new GUIStyle();
-    //        style.fontSize = 24;
-    //        var nodes = _graph.Nodes;
-    //        for (int i = 0; i < nodes.Length; i++)
-    //        {
-    //            var node = nodes[i];
-    //            GUI.Label(new Rect(new Vector2(node.x * cellSizeX + offX, node.y * cellSizeY + offY), new Vector2(cellSizeX, cellSizeY)), node.direction.ToString(), style);
-    //        }
-    //    }
-    //}
+            _graph.SetTarget(_target.x, _target.y);
+            _graph.GenerateFlowField(_target.x, _target.y);
+        }
+
+        public Vector2Int GetNextNode(int col, int row)
+        {
+            _graph.TryGet(col, row, out Node node);
+            if (node == null)
+            {
+                return new Vector2Int(-1, -1);
+            }
+            int offx = 0;
+            int offy = 0;
+            bool hasNext = false;
+            var dir = node.direction;
+            if (dir.Equals(Direction.Down))
+            {
+                offy = 1;
+                hasNext = true;
+            }
+            else if (dir.Equals(Direction.Up))
+            {
+                offy = -1;
+                hasNext = true;
+            }
+            else if (dir.Equals(Direction.Right))
+            {
+                offx = 1;
+                hasNext = true;
+            }
+            else if (dir.Equals(Direction.Left))
+            {
+                offx = -1;
+                hasNext = true;
+            }
+
+            if (!hasNext)
+            {
+                return new Vector2Int(-1, -1);
+            }
+
+            return new Vector2Int(col + offx, row + offy);
+        }
+
+        public bool IsWalkable(int col, int row)
+        {
+            _graph.TryGet(col, row, out Node node);
+            if (node == null)
+            {
+                return false;
+            }
+
+            if (node.fCost == NodeDefine.MaxCost)
+            {
+                return false;
+            }
+
+            return node.isWalkable;
+        }
+
+        public bool IsTargetWalkable()
+        {
+            _graph.TryGet(_target.x, _target.y, out Node node);
+            if(node == null || !node.isWalkable)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool IsPlacable(Vector2Int pos, int sizeX, int sizeY)
+        {
+            for (int x = 0; x < sizeX; x++)
+            {
+                for (int y = 0; y < sizeY; y++)
+                {
+                    _graph.TryGet(pos.x + x, pos.y - y, out Node node);
+                    if (node == null || !node.isWalkable)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        private List<Node> tmpList = new List<Node>();
+        public List<Node> GetNearWalkableNodes(int col, int row)
+        {
+            tmpList.Clear();
+            Node node = null;
+            for (int c = -2; c <= 2; c++)
+            {
+                for (int r = -2; r <= 2; r++)
+                {
+                    _graph.TryGet(col + c, row + r, out node);
+                    if (node != null && node.isWalkable)
+                    {
+                        tmpList.Add(node);
+                    }
+                }
+            }
+            return tmpList;
+        }
+
+        public void CloneFrom(Map _map)
+        {
+            _columns = _map._columns;
+            _rows = _map._rows;
+            _target = _map._target;
+            if(_graph == null || _graph.Columns != _columns || _graph.Rows != _rows)
+            {
+                Graph.TryCreate(_rows, _columns, out _graph);
+            }
+            _graph.CloneFrom(_map.Graph);
+        }
+    }
 }

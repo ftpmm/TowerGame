@@ -132,10 +132,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8207aeb7a9d288d47963f41aa29a5b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerId: 1
   sizeX: 2
   sizeY: 2
-  posX: 0
-  posY: 0
+  param:
+    atk: 0
+    atkPercent: 0
+    atkRange: 0
+    atkSpeed: 0
+    criPercent: 0
+    criDmgPercent: 0
 --- !u!1 &3226322409251950722
 GameObject:
   m_ObjectHideFlags: 0

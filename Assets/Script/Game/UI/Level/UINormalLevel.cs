@@ -44,11 +44,12 @@ namespace lzengine
 
         private void OnItemDrag(SubTowerItem item, Vector2 sPos)
         {
-            if(mCurDragItem == null)
+            if (mCurDragItem == null)
             {
                 return;
             }
             var wPos = Camera.main.ScreenToWorldPoint(sPos);
+            wPos.z = 0;
             mCurDragItem.Position = wPos;
         }
 
@@ -58,8 +59,16 @@ namespace lzengine
             {
                 return;
             }
-
-            mCurDragItem.Destroy();
+            if(!mCurDragItem.IsPlacable)
+            {
+                mCurDragItem.Destroy();
+                LZDebug.LogError("放置失败！！！");
+            }
+            else
+            {
+                GameLevelManager.Instance.AddFightTower(mCurDragItem.TowerId, mCurDragItem.Position, mCurDragItem.TowerSize);
+                mCurDragItem.Destroy();
+            }
             mCurDragItem = null;
         }
     }

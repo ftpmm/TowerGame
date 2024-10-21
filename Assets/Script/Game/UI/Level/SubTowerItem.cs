@@ -15,7 +15,6 @@ namespace lzengine
 
         public void InitItem()
         {
-            mBtn = gameObject.GetComponent<Button>();
             
         }
 
@@ -29,19 +28,18 @@ namespace lzengine
 
         public void OnDrag(PointerEventData eventData)
         {
-            Debug.Log("OnDrag" + eventData.position);
-            if (mOnDragStart != null) 
+            if (mOnDrag != null) 
             {
-                mOnDragStart(this, eventData.position);
+                mOnDrag(this, eventData.position);
             }
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
             Debug.Log("OnBeginDrag");
-            if (mOnDrag != null) 
+            if (mOnDragStart != null) 
             {
-                mOnDrag(this, eventData.position);
+                mOnDragStart(this, eventData.position);
             }
         }
 

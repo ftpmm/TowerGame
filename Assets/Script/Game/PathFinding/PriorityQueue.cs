@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Pathfinding
+namespace lzengine
 {
     public sealed class PriorityQueue<TItem, TPriority> where TPriority : IComparable<TPriority>
     {

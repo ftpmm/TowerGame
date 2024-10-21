@@ -1,4 +1,7 @@
-﻿public class BaseParamTower
+﻿using System;
+
+[Serializable]
+public class BaseParamTower
 {
     /// <summary>
     /// 基础攻击力

@@ -9,7 +9,7 @@ namespace lzengine
     /// <summary>
     /// 事件派发系统
     /// </summary>
-    public class TestEventManager : Singleton<TestEventManager>
+    public class GameEventManager : Singleton<GameEventManager>
     {
         private Dictionary<int, Delegate> eventDict = new Dictionary<int, Delegate>();
 

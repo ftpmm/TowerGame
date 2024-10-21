@@ -17,4 +17,11 @@ namespace lzengine
 
         public const int Enter_Game = 110;
     }
+
+    public class LayerDefine
+    {
+        public const int UI = 5;
+        public const int Player = 9;
+    }
+
 }

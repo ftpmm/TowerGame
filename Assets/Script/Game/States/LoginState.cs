@@ -17,9 +17,9 @@ namespace lzengine
         {
             EventManager.Instance.AddEventListener(GameEventDefine.Enter_Game, OnEnterMain);
 
-            TestEventManager.Instance.AddEventListener<TestStruct>(130, OnTestCB);
-            TestEventManager.Instance.AddEventListener<TestClass>(140, OnTestCC);
-            TestEventManager.Instance.AddEventListener<string>(150, OnTestString);
+            GameEventManager.Instance.AddEventListener<TestStruct>(130, OnTestCB);
+            GameEventManager.Instance.AddEventListener<TestClass>(140, OnTestCC);
+            GameEventManager.Instance.AddEventListener<string>(150, OnTestString);
             UIManager.Instance.OpenUIASync<UILogin>((ui) => {
                 EventManager.Instance.Dispatch<bool>(LZEngineEventDefine.Game_Init, true);
             });
@@ -39,9 +39,9 @@ namespace lzengine
         {
             TestStruct t = new TestStruct() { a = "test", b = 10.0f, c = 0 };
             OnTestCB(t);
-             TestEventManager.Instance.Dispatch<TestStruct>(130, new TestStruct() { a= "test222", b=10.0f, c = 0});
-             TestEventManager.Instance.Dispatch<TestClass>(140, new TestClass());
-            TestEventManager.Instance.Dispatch<string>(150, "tfafdafda");
+             GameEventManager.Instance.Dispatch<TestStruct>(130, new TestStruct() { a= "test222", b=10.0f, c = 0});
+             GameEventManager.Instance.Dispatch<TestClass>(140, new TestClass());
+            GameEventManager.Instance.Dispatch<string>(150, "tfafdafda");
             EventManager.Instance.RemoveEventListener(GameEventDefine.Enter_Game, OnEnterMain);
             mMachine.TransState<MainState>();
         }

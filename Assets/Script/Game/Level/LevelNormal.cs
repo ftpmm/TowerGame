@@ -34,18 +34,7 @@ public class LevelNormal : LevelBase
         Vector2 targetCenterPos = GetLevelMapCenterPos(targetCellPos);
         targetActor.transform.position = targetCenterPos ;
 
-        mMap.SetTarget(targetCellPos.x, targetCellPos.y);
-        mMap.InitMap(sizeY, sizeX);
-
-        var nodes = mMap.Graph.Nodes;
-        for (int i = 0; i < nodes.Length; i++)
-        {
-            var node = nodes[i];
-            if (node.x == 1)
-            {
-                var nodePos = GetLevelMapPos(new Vector2Int(node.x, node.y));
-                LZDebug.Log("nodey = " + node.y + ", pos = " + nodePos);
-            }
-        }
+        mMap.GenerateMap(new Vector2Int(sizeX, sizeY), targetCellPos);
+        mMapPreview.CloneFrom(mMap);
     }
 }

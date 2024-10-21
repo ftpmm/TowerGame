@@ -1,7 +1,8 @@
+using lzengine;
 using System;
 using System.Collections.Generic;
 
-namespace Pathfinding
+namespace lzengine
 {
     public class Graph
     {
@@ -189,6 +190,24 @@ namespace Pathfinding
 
             graph = new Graph(rows, columns);
             return true;
+        }
+
+        public void CloneFrom(Graph graph)
+        {
+            for(int i = 0; i < graph._graph.Length; i++)
+            {
+                var srcNode = graph._graph[i];
+                var tarNode = _graph[i];
+#if UNITY_EDITOR
+                if(srcNode.x != tarNode.x || srcNode.y != tarNode.y)
+                {
+                    LZDebug.LogError("Graph is Diff Err!!!!!!!!!!!!");
+                }
+#endif
+                tarNode.fCost = srcNode.fCost;
+                tarNode.cost = srcNode.cost;
+                tarNode.direction = srcNode.direction;
+            }
         }
 
     }
